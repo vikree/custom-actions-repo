@@ -1,0 +1,16 @@
+name: Build Docker Image
+description: Build the Docker image
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Build app image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ${{ github.workspace }}/Dockerfile
+        push: false
+        tags: ${{ inputs.tags }}
+        build-args: BUILD_ARG=value
