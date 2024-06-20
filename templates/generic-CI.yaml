@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Docker Image
-        uses: example/custom-actions-repo/steps/build_action.yml@main
+        uses: ./.github/actions/steps/build
         with:
           tags: ${{ inputs.tags }}
 
@@ -21,6 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push Docker Image
-        uses: example/custom-actions-repo/steps/push_action.yml@main
+        uses: ./.github/actions/steps/push
         with:
           tags: ${{ inputs.tags }}
