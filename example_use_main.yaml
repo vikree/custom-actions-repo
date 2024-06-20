@@ -1,0 +1,9 @@
+name: Main Workflow
+
+on: [push]
+
+jobs:
+  call-generic-ci:
+    uses: example/custom-actions-repo/template/generic-CI.yaml@main
+    with:
+      tags: user/containerRepository:latest
