@@ -6,21 +6,25 @@ on:
       tags:
         required: true
         type: string
+      build-args:
+        required: false
+        type: string
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Build Docker Image
-        uses: ./.github/actions/steps/build
+        uses: example/custom-actions-repo/steps/build_action.yml@main
         with:
           tags: ${{ inputs.tags }}
+          build-args: ${{ inputs.build-args }}
 
   push:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Push Docker Image
-        uses: ./.github/actions/steps/push
+        uses: example/custom-actions-repo/steps/push_action.yml@main
         with:
           tags: ${{ inputs.tags }}
