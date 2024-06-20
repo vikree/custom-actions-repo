@@ -1,0 +1,26 @@
+name: Generic CI Workflow
+
+on:
+  workflow_call:
+    inputs:
+      tags:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Docker Image
+        uses: example/custom-actions-repo/steps/build_action.yml@main
+        with:
+          tags: ${{ inputs.tags }}
+
+  push:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Push Docker Image
+        uses: example/custom-actions-repo/steps/push_action.yml@main
+        with:
+          tags: ${{ inputs.tags }}
