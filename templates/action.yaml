@@ -16,9 +16,6 @@ jobs:
     steps:
       - name: Build Docker Image
         uses: ../steps/build_action.yml@main
-        with:
-          tags: ${{ inputs.tags }}
-          build-args: ${{ inputs.build-args }}
 
   push:
     needs: build
@@ -26,5 +23,3 @@ jobs:
     steps:
       - name: Push Docker Image
         uses: ../steps/push_action.yml@main
-        with:
-          tags: ${{ needs.build.outputs.tags }}
