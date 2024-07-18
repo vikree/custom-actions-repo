@@ -18,9 +18,9 @@ jobs:
       #  uses: actions/checkout@v2
       - name: Build Docker Image
         uses: ./.github/workflows/steps/build@main
-        with:
-          tags: ${{ inputs.tags }}
-          build-args: ${{ inputs.build-args }}
+      #  with:
+      #    tags: ${{ inputs.tags }}
+      #    build-args: ${{ inputs.build-args }}
 
   push:
     needs: build
