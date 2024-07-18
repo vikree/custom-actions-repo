@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Docker Image
-        uses: ./steps/build_action.yml@main
+        uses: vikree/custom-actions-repo/steps/build_action.yml@main
         with:
           tags: ${{ inputs.tags }}
           build-args: ${{ inputs.build-args }}
@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push Docker Image
-        uses: ./steps/push_action.yml@main
+        uses: vikree/custom-actions-repo/steps/push_action.yml@main
         with:
           tags: ${{ inputs.tags }}
