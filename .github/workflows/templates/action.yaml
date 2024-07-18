@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Push Docker Image
-        uses: ./t.github/workflows/steps/push@main
+        uses: ./.github/workflows/steps/push@main
         with:
           tags: ${{ inputs.tags }}
