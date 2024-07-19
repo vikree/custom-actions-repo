@@ -17,7 +17,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Build Docker Image
-        uses: ./.github/workflows/steps/build@main
+        uses: ./build@main
       #  with:
       #    tags: ${{ inputs.tags }}
       #    build-args: ${{ inputs.build-args }}
@@ -29,6 +29,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
       - name: Push Docker Image
-        uses: ./.github/workflows/steps/push@main
+        uses: ./push@main
         with:
           tags: ${{ inputs.tags }}
